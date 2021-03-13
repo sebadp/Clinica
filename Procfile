@@ -1,1 +1,1 @@
-web:gunicorn Tpclinica.wsgi
+web: gunicorn Tpclinica.wsgi
