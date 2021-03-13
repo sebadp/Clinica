@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if user.es_secretaria or user.es_medico %}
+<h1>Todos los turnos del año: {{ year|date:"Y" }}</h1>
+
+<h2>Meses con turnos</h2>
+<ul>
+    {% for date in date_list %}
+    <li>{{ date|date }}</li>
+    {% endfor %}
+</ul>
+
+<div>
+    <h2>Todos los turnos</h2>
+
+    {% for obj in object_list %}
+        <p>
+            {{ obj.Paciente }} - {{ obj.FechaTurno|date:"F j, Y" }}
+        </p>
+    {% endfor %}
+</div>
+
+{% else %}
+<div class="row d-flex justify-content-center">
+    <div class="col-8">
+        <h1 class="text-center my-5 lead">No tienes permisos. </h1>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

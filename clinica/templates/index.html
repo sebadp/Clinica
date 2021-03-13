@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<header class="bg-primary text-center py-4 mb-4">
+    <div class="container gallery-containe">
+        <h1 class="font-weight-light text-white">CLINICA OFTALMOLOGICA</h1>
+    </div>
+</header>
+<div class="container gallery-container">
+
+    <div class="tz-gallery">
+
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <h5 class="card-title mb-0">ADMINISTRADOR</h5>
+                <a class="lightbox" onclick="location.href='{% url 'usuarios:login' %}' "><img
+                        src="{% static 'img/admin1.png' %}" class="responsive" alt="..."></a>
+                <div class="card-body text-center">
+                    <button type="button" class="btn btn-primary"
+                        onclick="location.href='{% url 'usuarios:login' %}' ">ENTRAR</button>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <h5 class="card-title mb-0">MEDICO</h5>
+                <a class="lightbox" onclick="location.href='{% url 'usuarios:login' %}' "><img
+                        src="{% static 'img/doctor1.png' %}" class="responsive" alt="..."></a>
+                <div class="card-body text-center">
+                    <button type="button" class="btn btn-primary"
+                        onclick="location.href='{% url 'usuarios:login' %}' ">ENTRAR</button>
+                </div>
+            </div>
+            
+            <div class="col-sm-6 col-md-4">
+                <h5 class="card-title mb-0">SECRETARIA</h5>
+                <a class="lightbox" onclick="location.href='{% url 'usuarios:login' %}' "><img
+                        src="{% static 'img/secretaria1.png' %}" class="responsive" alt="..."></a>
+                <div class="card-body text-center">
+                    <button type="button" class="btn btn-primary"
+                        onclick="location.href='{% url 'usuarios:login' %}' ">ENTRAR</button>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <h5 class="card-title mb-0">TECNICO</h5>
+                <a class="lightbox" onclick="location.href='{% url 'usuarios:login' %}' "><img
+                        src="{% static 'img/tecnico.png' %}" class="responsive" alt="..."></a>
+                <div class="card-body text-center">
+                    <button type="button" class="btn btn-primary"
+                        onclick="location.href='{% url 'usuarios:login' %}' ">ENTRAR</button>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <h5 class="card-title mb-0">VENDEDOR</h5>
+                <a class="lightbox" onclick="location.href='{% url 'usuarios:login' %}' "><img
+                        src="{% static 'img/ventas.png' %}" class="responsive" alt="..."></a>
+                <div class="card-body text-center">
+                    <button type="button" class="btn btn-primary"
+                        onclick="location.href='{% url 'usuarios:login' %}' ">ENTRAR</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock content %}

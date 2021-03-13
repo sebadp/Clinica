@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% if not user.is_authenticated %}
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'usuarios:loguin' %}">Necesita autenticarse: Inicie Sesion
+            </a>
+          </li>
+          {% if user.es_secretaria or user.es_medico %}
+          {% block content %}
+
+
+
+<br>
+<h1>Lista de Turnos</h1>
+<br>
+<button type="button" class="btn btn-success" onclick="location.href='{% url 'clinica:crearTurno'  %}' ">AGREGAR</button> 
+<br>
+<div class="container-fluid"></div>
+    
+<<<<<<< HEAD
+        
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Paciente</th>
+                <th scope="col">Medico</th>
+                <th scope="col">FechaTurno</th>
+                <th scope="col">HoraTurno</th>
+                <th scope="col">AltaTurno</th>
+                <th scope="col">BajaTurno</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for unTurno in turnos %}
+                    <tr>
+                        <th scope="row">{{unturno.id}}</th>
+                        <td>{{unTurno.id}}</td>
+                        <td>{{unTurno.Paciente}}</td>
+                        <td>{{unTurno.Medico}}</td>
+                        <td>{{unTurno.FechaTurno}}</td>
+                        <td>{{unTurno.HoraTurno}}</td>
+                        <td>{{unTurno.AltaTurno}}</td>
+                        <td>{{unTurno.BajaTurno}}</td>
+=======
+    <button type="button" class="btn btn-success" onclick="{% url 'clinica:crearTurno' %}" >AGREGAR</button> 
+    <br>
+    <div class="container-fluid"></div>
+        
+            
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Paciente</th
+                    <th scope="col">Medico</th>
+                    <th scope="col">FechaTurno</th>
+                    <th scope="col">HoraTurno</th>
+                    <th scope="col">AltaTurno</th>
+                    <th scope="col">BajaTurno</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for unTurno in turnos %}
+                        <tr>
+                            <th scope="row">{{unturno.id}}</th>
+                            <td>{{unTurno.id}}</td>
+                            <td>{{unTurno.Paciente}}</td>
+                            <td>{{unTurno.Medico}}</td>
+                            <td>{{unTurno.FechaTurno}}</td>
+                            <td>{{unTurno.HoraTurno}}</td>
+                            <td>{{unTurno.AltaTurno}}</td>
+                            <td>{{unTurno.BajaTurno}}</td>
+>>>>>>> 76b87f2c619c5c97bb23608b73a53a74760971df
+
+                        
+                        <td>
+                            <button type="button" class="btn btn-warning" onclick="location.href='{% url 'clinica:actualizar' unTurno.id %}'" >EDITAR</button> 
+                            <button type="button" class="btn btn-info" onclick="location.href='{% url 'clinica:crear' unTurno.id %}'">DETALLES</button>
+                            <button type="button" class="btn btn-danger" onclick="location.href='{% url 'clinica:eliminar' unTurno.id %}'">ELIMINAR</button>  
+                            
+                        </td>
+                    </tr>
+                {% endfor %}    
+            </tbody>
+        </table>
+        
+      
+    
+</div>
+
+
+
+          {% endblock content %}
+
+          
+{% endif %}
+
+{% block content %}
+<li class="nav-item active">
+    <a class="nav-link" href="{% url 'usuarios:loguin' %}">No tiene permisos para ingresar. Ingrese como Medica o Secretario.
+    </a>
+  </li>
+ 
+{% endblock content %}

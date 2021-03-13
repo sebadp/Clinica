@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome</title>
+    <link rel="stylesheet" href="{% static 'styles/estilo.css' %}" />
+    <link
+      rel="shortcut icon"
+      href="{% static 'images/ojo.ico' %}"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="{% static 'styles/bootstrap.min.css' %}" />
+    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+    integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+    crossorigin="anonymous"></script>
+  </head>
+
+
+
+
+
+
+
+  
+  <body>
+    <header class="rom">
+      <h1 id="titulo" class="text-center">Clínica de Optometríaaaa</h1>
+      <img
+        id="logo"
+        src="{% static 'images/optometrista.png'%}"
+        style="width: 55px"
+      />
+    </header>
+
+    <!-- {% block body %} -->
+        <h1>Probando el Body del home de Usuarios</h1>
+
+        {% if user.is_authenticated %}
+            <p>Bienvenido, {{ user.username }}.</p>
+            <p>Permisos Secretaria: {{ perms.secretaria }}.</p>
+            <p>Grupos Secretaria: {{ user.groups }}.</p>
+            <br>
+            <a href="{% url 'usuarios:logout' %}">Desconectarse</a>
+        {% else %}
+            <p>Debe loguearse para acceder al Sistema.</p>
+
+            <br>
+            <h1>Log In</h1>
+
+            {% if mensaje %}
+                <div>{{ mensaje }}</div>
+            {% endif %}
+
+            Acá pedir logueo
+        {% endif %}
+    <!-- {% endblock%} -->
+
+  </body>
+
+</html>

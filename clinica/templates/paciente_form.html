@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{% block extrahead %}
+
+{{ form.media }}
+{% endblock %}
+{% block content %}
+<h1>Paciente</h1>
+
+
+<form  method="post">
+{% csrf_token %}
+{% bootstrap_form upload_form %}
+<input  type="submit"  value="Submit"  />
+</form>
+<br>
+<br>
+<button type="button" class="btn btn-primary" onclick="location.href='{% url 'clinica:pacientes'  %}'" >VOLVER</button> 
+<br>
+<br>
+{% endblock content %}

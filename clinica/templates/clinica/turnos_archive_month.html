@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<ul>
+    <H1> Archivo mensual</H1>
+
+    {% for turnos in object_list %}
+
+        <li>{{ turnos.Paciente|date:"F j, Y" }}: {{ turnos.FechaTurno }}</li>
+    {% endfor %}
+</ul>
+
+<p>
+    {% if previous_month %}
+        Previous Month: {{ previous_month|date:"F Y" }}
+    {% endif %}
+    {% if next_month %}
+        Next Month: {{ next_month|date:"F Y" }}
+    {% endif %}
+</p>
+
+{% endblock content %}

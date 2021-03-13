@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+
+  <title>Clinica Polotic</title>
+
+  <!-- Bootstrap core CSS -->
+
+  <!-- Custom styles for this template -->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <script src="//code.jquery.com/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  {% load bootstrap3 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+
+  {% block extrahead %}
+  {% endblock %}
+
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+</head>
+
+<body>
+      
+  <div class="navbar navbar-inverse navbar-static-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#acolapsar">
+                <span class="sr-only">toggleNAv</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'clinica:index' %}">Clínica</a>
+        </div>
+        <div class="collapse navbar-collapse" id="acolapsar">
+            <ul class="nav navbar-nav">
+                {% if not user.is_authenticated %}
+                <li class="active"><a href="{% url 'clinica:index' %}">Home<span
+                            class="sr-only">(current)</span></a></li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Contacto</a></li>
+                {% endif %}
+                  {% if user.is_superuser %}
+                <li><a href="{% url 'admin:index' %}">Administrar Sistema</a></li>
+                <li><a href="{% url 'clinica:productos' %}">ABM Productos</a></li>
+                {% endif %}
+                {% if user.es_secretaria %}
+                <li><a href="#">Secretaria</a></li>
+                <li><a href="{% url 'clinica:turnos' %}">Turnos</a></li>
+                <li><a href="{% url 'clinica:pacientes' %}">Pacientes</a></li>
+                {% endif %}
+
+                {% if user.es_medico %}
+                <li><a href="#">Médico</a></li>
+                <li><a href="{% url 'clinica:turnos' %}">Turnos</a></li>
+                <li><a href="{% url 'clinica:pacientes' %}">Pacientes</a></li>
+                <li><a href="{% url 'clinica:turnos_reporte' %}">Archivo Pacientes</a></li>
+                {% endif %}
+
+                {% if user.es_taller %}
+                {% endif %}
+
+                {% if user.es_ventas %}
+                <li><a href="#">Ventas</a></li>
+                <li><a href="{% url 'clinica:pedidos' %}">Pedidos</a></li>
+                {% endif %}
+
+                {% if user.es_gerencia %}
+                <li><a href="#">Gerencia</a></li>                
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reportes
+                  <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url 'clinica:reportePacientePedido' 0 %}">Pacientes con pedidos semanal </a></li>
+                    <li><a href="{% url 'clinica:productoMasVendidos'  %}">Productos mas vendido mensual</a></li>
+                    <li><a href="{% url 'clinica:reportePacientePedido' 1 %}">Pacientes con pedidos en el mes</a></li>
+                    <li><a href="{% url 'clinica:reporteVentas' 0 %}">Ventas mensuales x vendedor</a></li>
+                    <li><a href="{% url 'clinica:reporte_asistencia' %}">Reporte Asistencia Pacientes</a></li>
+
+                    
+                  </ul>
+                </li>
+                {% endif %}
+
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if not user.is_authenticated %}
+                <li><a href="{% url 'usuarios:login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                </li>
+                {% endif %}
+                {% if user.is_authenticated %}
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{user.username}}</a></li>
+                <li><a href="{% url 'usuarios:logout' %}"><span
+                            class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                {% endif %}
+
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container">
+    {% block content %}
+    {% endblock %}
+  </div>
+   
+ 
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <br>    
+    <!-- <button type="button" class="btn btn-success" onclick="location.href='{% url 'clinica:agregar_pedido'  %}' ">AGREGAR</button>  -->
+    <br>
+    <div class="container-fluid"></div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Listado de Pedidos
+                <!-- <button type="button" class="btn btn-info btn-xs" onclick="location.href='{% url 'clinica:index' %}'">Volver</button>  -->
+            <div class="pull-right ">
+                <a class="btn btn-confirm btn-sm" href="{% url 'clinica:agregar_pedido' %}">
+                  <i class="fa fa-plus"></i>
+                <b>Nuevo Pedido</b></a>
+              </div>
+            </div>
+
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Paciente</th>
+                            <th scope="col">Tipo de pago</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Subtotal</th>                  
+                            <th scope="col">Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for unPedido in pedidos %}
+                                <tr>
+                                    <th scope="row">{{unPedido.id}}</th>
+                                    <td> {{ unPedido.paciente}}
+                                    </td> 
+                                    <td> 
+                                        {% if unPedido.tipo_pago == 'T' %}
+                                            Tarjeta de credito
+                                        {% elif unPedido.tipo_pago == 'B' %}
+                                            Billetera virtual  
+                                        {% elif unPedido.tipo_pago == 'E' %}
+                                            Efectivo                                   
+                                        {% else %}
+                                            Debito
+                                        {% endif %}</td>
+                                    <td>
+                                        {% if unPedido.estado == 'PD' %}
+                                            Pedido
+                                        {% elif unPedido.estado == 'PT' %}
+                                            Pendiente
+                                        {% elif unPedido.estado == 'TL' %}
+                                            Taller                  
+                                        {% elif unPedido.estado == 'FL' %}
+                                            Finalizado                 
+                                        {% else %}
+                                            Desconocido
+                                        {% endif %}
+                                    </td>
+                                    <td>{{unPedido.fecha}}</td>
+                                    <td>
+                                        {% if user.es_taller %}
+                                        ---
+                                        {% else %}
+                                            {{unPedido.subtotal}}
+                                        {% endif %}
+                                    </td>
+
+                                    <td >
+                                        <!-- <button data-toggle="tooltip" title="Editar" data-placement="auto" type="button" class="btn btn-sm  " onclick="location.href='{% url 'clinica:detalle_pedido' unPedido.id %}'">                       
+                                        <i class="fa fa-edit"></i>
+                                        </button> -->
+                                        <div class="text-left">
+                                            <a href="{% url 'clinica:cambioDeEstado' unPedido.id %}" title="Cambiar Estado">
+                                                <i class="fa fa-history"></i>
+                                            </a>
+
+                                            <a href="{% url 'clinica:detalle_pedido' unPedido.id %}" title="Editar">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+
+                                            {% if unPedido.estado == 'PT' and user.es_ventas %}
+                                            <a href="{% url 'clinica:eliminar_pedido' unPedido.id %}" title="Eliminar" onClick="return confirm('¿Seguro que quieres eliminar el pedido?');">
+                                            <i class="fa fa-trash-o"></i>
+                                            </a>
+                                            {% endif %}
+                                        </div>
+                                    </td>
+                        
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td style="text-align:center" colspan="7"><strong>No hay pedidos disponibles</strong></td>
+                                </tr>                        
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+          
+        
+    </div>
+{% endblock content %}
+

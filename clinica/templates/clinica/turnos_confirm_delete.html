@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block extrahead %}
+
+{% endblock %}
+
+  {% block content %}
+  <form method="post">{% csrf_token %}
+    <p>Estas seguro de querer eliminar el turno? "{{ object }}"?</p>
+    <input type="submit" value="Confirm">
+</form>
+  {% endblock %}
+
+
+

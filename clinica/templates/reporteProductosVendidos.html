@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <br>    
+    <!-- <button type="button" class="btn btn-success" onclick="location.href='{% url 'clinica:agregar_pedido'  %}' ">AGREGAR</button>  -->
+    <br>
+    <div class="container-fluid"></div>
+        <div class="panel panel-default">
+            <div class="panel-heading">{{titulo}}
+                <!-- <button type="button" class="btn btn-info btn-xs" onclick="location.href='{% url 'clinica:index' %}'">Volver</button>  -->
+                <div class="pull-right ">
+                    <a class="btn btn-confirm btn-sm" href="{% url 'clinica:index' %}">
+                    <i class="fa fa-refresh"></i>
+                    <b>Volver</b></a>
+                </div>
+            </div>
+
+            <div class="panel-body">
+
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Cantidad</th>
+                            
+                           
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for unPedido, unPedido2 in pedidos %}
+                            <tr>
+                                <th scope="row"></th>
+                                <td> {{ unPedido}}
+                                <td> {{ unPedido2}}
+                                </td> 
+
+                               
+                    
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+          
+        
+    </div>
+{% endblock content %}
+

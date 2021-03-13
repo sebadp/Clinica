@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="panel panel-default">
+    <div class="panel-heading">Detalle del Pedido
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-info btn-xs" onclick="location.href='{% url 'clinica:pedidos' %}'">Volver</button> 
+        </div>
+    </div>
+    
+    <div class="panel-body">
+        <form action="" method = 'POST'>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Vendedor</th>
+                        <th>Paciente</th>
+                        <th>F.Pago</th>
+                        <th>Estado</th>
+                        <th>SubTotal</th>
+                        <th>Fecha</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">{{unItem.id}}</th>
+                            <td>{{pedido.vendedor}}</td>
+                            <td>{{pedido.paciente}}</td>
+                            <td>{% if pedido.tipo_pago == 'T' %}
+                                Tarjeta de credito
+                                {% elif pedido.tipo_pago == 'B' %}
+                                    Billetera virtual  
+                                {% elif pedido.tipo_pago == 'E' %}
+                                    Efectivo                                   
+                                {% else %}
+                                    Debito
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if user.es_ventas %}                         
+                                    <select class="form-control" name="estado">
+                                        <option value="SL">Seleccionar</option>      
+                                        <option value="PT">Pendiente</option>
+                                        <option value="PD">Pedido</option>
+                                        <option value="TL">Taller</option>
+                                    </select>                    
+                                {% endif %}
+
+                                {% if user.es_taller %}
+                                <select class="form-control" name="estado">
+                                    <option value="SL">Seleccionar</option>  
+                                    <option value="TL">Taller</option>
+                                    <option value="FL">Finalizado</option>          
+                                </select>                    
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if user.es_taller %}
+                                ---
+                                {% else %}
+                                    {{pedido.subtotal}}
+                                {% endif %}
+                            </td>
+                            <td>{{pedido.fecha}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary btn-xs">Guardar</button>
+            {% if mensaje %}
+            <div class="text-center" style="color:red"> {{ mensaje }} </div>
+            {% endif %}
+        </form>
+    </div>
+</div>
+    
+    <!-- <form  method = 'POST'> -->
+        <!-- {% csrf_token %} -->
+        <!-- {{ form }}
+        {{ form.as_p }} -->
+        <!-- {% for field in form %}
+            <tr>
+                <th>{{field.label}}</th>
+                <td>{{ field }}</td>
+            </tr>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary btn-xs">Guardar</button>
+        <a href="{% url 'clinica:pedidos' %}" class="btn btn-primary btn-xs">Volver</a>
+    </form> -->
+    
+    
+{% endblock content %}

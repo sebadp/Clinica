@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <br>
+    <h1>Codigo de Producto: {{producto.id}}</h1>
+    <ul class="list-group">
+        <li class="list-group-item">{turno.hora}}</li>
+        <li class="list-group-item">{{turno.fecha}}</li>
+        <li class="list-group-item">{{turno.descripcion}}</li>
+        
+      </ul>
+    
+          <a href="{% url 'clinica:turnos' %}" class="btn btn-primary">VOLVER</a>
+        
+    
+        
+        
+           
+        
+    
+    
+{% endblock content %}

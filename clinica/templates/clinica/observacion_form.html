@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{% block extrahead %}
+
+{{ form.media }}
+{% endblock %}
+{% block content %}
+<h1>Observacion</h1>
+
+
+<form  method="post">
+{% csrf_token %}
+{% bootstrap_form form %}
+<input  type="submit"  value="Submit"  />
+</form>
+{% endblock content %}

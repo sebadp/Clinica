@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}    
+{% if user.is_superuser %}
+
+    <div class="container-fluid"></div>
+    <br>
+    <div class="container-fluid"></div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Listado de Productos
+                <!-- <button type="button" class="btn btn-info btn-xs" onclick="location.href='{% url 'clinica:index' %}'">Volver</button>  -->
+            <div class="pull-right ">
+                <a class="btn btn-confirm btn-sm" href="{% url 'clinica:agregar' %}">
+                  <i class="fa fa-plus"></i>
+                <b>Nuevo Producto</b></a>
+              </div>
+            </div>
+            <div class="panel-body">
+            
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Enfoque</th>
+                    <th scope="col">Lado</th>
+                    <th scope="col">Armazón</th>                  
+                    <th scope="col">Editar</th>
+                    <th scope="col">Eliminar</th>
+                    <th scope="col">Detalle</th>
+                    
+                </tr>
+                </thead>
+                <tbody>
+                    {% for unProducto in productos %}
+                        <tr>
+                            <th scope="row">{{unProducto.id}}</th>
+                            <td>{{unProducto.descripcion}}</td>
+                            <td>{{unProducto.precio}}</td>
+                            <td> {% if unProducto.tipo == 'L' %}
+                                    LENTE
+                                 {% elif unProducto.tipo == 'E' %}
+                                    ESTUCHE                                    
+                                 {% else %}
+                                    GOTITAS
+                                 {% endif %}
+                            <td>{% if unProducto.enfoque == 'L' %}
+                                    LEJOS
+                                    {% elif unProducto.enfoque == 'C' %}
+                                    CERCA
+                                    {% else %}
+                                    ------------                                 
+                                    {% endif %}
+                            </td>
+                            <td>{% if unProducto.lado == 'I' %}
+                                IZQUIERDA
+                                {% elif unProducto.lado == 'D' %}
+                                DERECHA
+                                {% else %}
+                                ------------  
+                                {% endif %}
+                            </td>
+                            <td>{% if unProducto.armazon == True %}
+                                SI
+                                
+                                {% else %}
+                                NO  
+                                {% endif %}
+                            </td>
+                            <!-- <td>
+                                <button type="button" class="btn btn-warning" onclick="location.href='{% url 'clinica:actualizar' unProducto.id %}'" >EDITAR</button> 
+                                <button type="button" class="btn btn-info" onclick="location.href='{% url 'clinica:producto' unProducto.id %}'">DETALLES</button>
+                                <button type="button" class="btn btn-danger" onclick="location.href='{% url 'clinica:eliminar' unProducto.id %}'">ELIMINAR</button>  
+                                
+                            </td> -->
+                            <td >
+                                <button data-toggle="tooltip" title="Editar" data-placement="auto" type="button" class="btn btn-sm  " onclick="location.href='{% url 'clinica:actualizar' unProducto.id %}'">                       
+                                  <i class="fa fa-edit"></i>
+                                </button>
+                            </td>
+                            <td >
+                                <button data-toggle="tooltip" title="Eliminar" data-placement="auto" type="button" class="btn btn-sm  " onclick="location.href='{% url 'clinica:eliminar' unProducto.id %}'">                       
+                                    <i class="fa fa-trash-o"></i>
+                                </button>
+                            </td>
+                            <td >
+                                <button data-toggle="tooltip" title="Detalle" data-placement="auto" type="button" class="btn btn-sm  " onclick="location.href='{% url 'clinica:producto' unProducto.id %}'">                       
+                                    <i class="fa fa-info-circle"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    {% endfor %}    
+                </tbody>
+            </table>
+        </div>
+    </div>
+          
+        
+    </div>
+{% else %}
+<div class="row d-flex justify-content-center">
+    <div class="col-8">
+        <h1 class="text-center my-5 lead">No tienes permisos. </h1>
+    </div>
+</div>
+{% endif %}
+{% endblock content %}

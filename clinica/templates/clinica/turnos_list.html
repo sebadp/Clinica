@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Todos los turnos   </h1>
+  <br>
+  {% if user.es_secretaria  %}
+
+  <button type="button" class="btn btn-success" onclick="location.href='{% url 'clinica:turno-create'  %}' ">AGREGAR TURNO</button> 
+  {% endif  %}
+  <br>
+  <br>
+  {% if turnos_list %}
+  <div class="container-fluid"></div>
+        
+            
+  <table class="table table-striped">
+      <thead>
+      <tr>
+          <th scope="col">Paciente</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Hora</th>
+          <td></td>
+          
+      </tr>
+      </thead>
+      <tbody>
+    {% for turnos in turnos_list %}
+    <tr>
+      <th scope="row"><a href="{{ turnos.get_absolute_url }}">{{ turnos.Paciente }}</a></th>
+      <td>{{turnos.FechaTurno}}</td>
+      <td>{{turnos.HoraTurno}}</td>
+      <td>{{turnos.medico}}</td>
+      <td>
+        {% if user.es_secretaria  %}
+
+        <button type="button" class="btn btn-warning" onclick="location.href='{% url 'clinica:turno-update' turnos.id %}'" >EDITAR</button> 
+        <button type="button" class="btn btn-danger" onclick="location.href='{% url 'clinica:turno-delete' turnos.id %}'">ELIMINAR</button>  
+        {% endif  %}
+
+    </td>
+ 
+    </tr>
+
+     
+    {% endfor %}
+  </tbody>
+</table>
+
+
+
+</div>
+  {% else %}
+    <p>No hay turnos pendientes</p>
+  {% endif %}       
+{% endblock %}

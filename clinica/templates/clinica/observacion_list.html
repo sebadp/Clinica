@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Lista de todas las observaciones</h1>
+ <br>
+ <a href="{% url 'clinica:observacion-create' %}" class="btn btn-primary">CREAR NUEVA OBSERVACION</a>
+
+<br>
+  {% if observacion_list %}
+  <ul>
+    {% for observacion in observacion_list %}
+      <li>
+        <a href="{{ turnos.get_absolute_url }}">{{ observacion.Fecha }}</a> ({{observacion.Paciente}} - {{observacion.observacion}})
+      </li>
+
+        
+    </td>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>No hay observaciones</p>
+  {% endif %}       
+{% endblock %}

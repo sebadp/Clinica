@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Lista de todos los turnos</h1>
+<a href="{% url 'clinica:turno-create' %}" class="btn btn-primary">CREAR NUEVO TURNO</a>
+
+
+<br>
+<div class="container-fluid"></div>
+    
+        
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Email</th>
+                
+            </tr>
+            </thead>
+            <tbody>
+
+
+    {% for turnos in latest %}
+    <tr>
+        <th scope="row">{{ turnos.FechaTurno }}</th>
+        <td>{{ turnos.FechaTurno }}</td>
+        <td>{{ turnos.FechaTurno }}</td>
+        <td>{{ turnos.FechaTurno }}</td>
+        <td>{{ turnos.FechaTurno }}</td>
+        <td>{{ turnos.FechaTurno }}</td>
+        <td>
+            <button type="button" class="btn btn-info" onclick="location.href='{% url 'clinica:historial' unPaciente.id %}'">Ver Historial</button>
+            <button type="button" class="btn btn-warning" onclick="location.href='{% url 'clinica:paciente_update' unPaciente.id %}'" >EDITAR</button> 
+            <button type="button" class="btn btn-danger" onclick="location.href='{% url 'clinica:paciente_delete' unPaciente.id %}'">ELIMINAR</button>  
+
+        </td>
+    </tr>
+        <li>{{ turnos.FechaTurno }}: {{ turnos.Paciente }}</li>
+    {% endfor %}
+
+
+
+
+{% endblock %}

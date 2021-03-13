@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block extrahead %}
+
+{% endblock %}
+{% block content %}
+<h1>Detalle turno</h1>
+    <ul>
+        <li>{{object.Paciente}}</li>
+        <li>{{object.FechaTurno}}</li>
+        <li>{{object.HoraTurno}}</li>
+        <li>{{object.Asistencia}}</li>
+    </ul>
+    <a href="{% url 'clinica:turnos' %}" class="btn btn-primary">VOLVER A TURNOS</a>
+    {% endblock content %}

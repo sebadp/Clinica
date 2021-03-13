@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{% block extrahead %}
+{{ form.media }}
+{% endblock %}
+{% block content %}
+
+<h1>Eliminar observacion?</h1>
+<form  method="post">
+{% csrf_token %}
+Estas seguro de querer eliminar esta observacion?
+<input  type="submit"  value="Submit"  />
+</form>
+{% endblock content %}

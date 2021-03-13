@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block extrahead %}
+
+{% endblock %}
+{% block content %}
+<h1>Detalle paciente</h1>
+    <ul>
+        <li>{{object.nombre}}</li>
+        <li>{{object.apellido}}</li>
+        <li>{{object.direccion}}</li>
+        <li>{{object.telefono}}</li>
+        <li>{{object.email}}</li>
+    </ul>
+    <a href="{% url 'clinica:pacientes' %}" class="btn btn-primary">VOLVER A PACIENTES</a>
+    {% endblock content %}

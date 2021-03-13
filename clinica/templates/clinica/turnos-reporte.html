@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{% block extrahead %}
+
+{{ form.media }}
+{% endblock %}
+
+
+{% block content %}
+{% if user.es_medico %}
+
+<br>
+<h1>Archivo de Pacientes</h1>
+<br>
+
+<form method="get">
+    {{  filter.form.as_p }}
+    <button type="submit">Search</button>
+  </form>
+  {% elif request.GET %}
+
+  <ul>
+    {% for turno in filter.qs %}
+    <li>{{ turno.Paciente }} - {{ turno.FechaTurno }} - {{ turno.Asistencia }}</li>
+    {% endfor %}
+  </ul>
+
+{% endif %}
+{% endblock %}
+

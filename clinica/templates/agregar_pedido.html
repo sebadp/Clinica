@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{% block content %}
+<h1>Crear Pedido</h1>
+<br>
+    <form method = 'POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        <table class = 'w-50 table table-light' style="border-radius:10px;">             
+            {% bootstrap_form upload_form %}
+            <!-- {% for field in upload_form %}
+            <tr>
+                <th>{{field.label}}</th>
+                <td>{{ field }}</td>
+            </tr>
+            {% endfor %} -->
+        </table>
+        <br>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-xs">CONFIRMAR</button>
+            <a href="{% url 'clinica:pedidos' %}" class="btn btn-danger btn-xs">CANCELAR</a>
+    </div>
+    </form>
+{% endblock content %}

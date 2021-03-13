@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <br>
+    <h1>Todos los Pacientes </h1>
+    <br>
+    {% if user.es_secretaria  %}
+
+    <button type="button" class="btn btn-success" onclick="location.href='{% url 'clinica:paciente_create'  %}' ">AGREGAR</button> 
+    {% endif  %}
+    <br>
+    <div class="container-fluid"></div>
+        
+            
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Email</th>
+                    
+                </tr>
+                </thead>
+                <tbody>
+                    {% for unPaciente in pacientes %}
+                        <tr>
+                            <th scope="row">{{unPaciente.id}}</th>
+                            <td>{{unPaciente.nombre}}</td>
+                            <td>{{unPaciente.apellido}}</td>
+                            <td>{{unPaciente.direccion}}</td>
+                            <td>{{unPaciente.telefono}}</td>
+                            <td>{{unPaciente.email}}</td>
+                            <td>
+                                <button type="button" class="btn btn-info" onclick="location.href='{% url 'clinica:historial' unPaciente.id %}'">Ver Historial</button>
+                                {% if user.es_secretaria  %}
+                              
+                                <button type="button" class="btn btn-warning" onclick="location.href='{% url 'clinica:paciente_update' unPaciente.id %}'" >EDITAR</button> 
+                                <button type="button" class="btn btn-danger" onclick="location.href='{% url 'clinica:paciente_delete' unPaciente.id %}'">ELIMINAR</button>  
+                                {% endif  %}
+
+                            </td>
+                        </tr>
+                    {% endfor %}    
+                </tbody>
+            </table>
+            
+          
+        
+    </div>
+{% endblock content %}

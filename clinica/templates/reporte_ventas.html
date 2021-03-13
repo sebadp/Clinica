@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container-fluid"></div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Listado de Ventas mensual por vendedor
+                <!-- <button type="button" class="btn btn-info btn-xs" onclick="location.href='{% url 'clinica:index' %}'">Volver</button>  -->
+            <!-- <div class="pull-right ">
+                <a class="btn btn-confirm btn-sm" href="{% url 'clinica:index' %}">
+                  <i class="fa fa-plus"></i>
+                <b>Nuevo Pedido</b></a>
+              </div> -->
+            </div>
+
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <!-- <th >#</th> -->
+                            <th >Mes</th>
+                            <th >Vendedor</th>
+                            <th >Username</th>
+                            <th >Cantidad</th>
+                            <th >Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for unItem in pedidos %}
+                                <tr>
+                                    <!-- <th scope="row">{{unItem.vendedor.id}}</th> -->
+                                    <td>{{unItem.mes}}</td>
+                                    <td> {{ unItem.vendedor.last_name }} {{ unItem.vendedor.first_name }} </td>
+                                    <td> {{ unItem.vendedor.username }}</td>
+                                    <td>{{ unItem.cantidad }}</td>
+                                    <td>${{ unItem.ventas }}</td>
+                                </tr>
+                            {% empty %}
+                                <tr >
+                                    <td style="text-align:center" colspan="9"><strong>No hay nada!!!!</strong></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+          
+        
+    </div>
+{% endblock content %}
+
