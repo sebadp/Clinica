@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import django-heroku
 from pathlib import Path
 from django.urls import reverse_lazy
 
@@ -119,3 +119,5 @@ LOGOUT_REDIRECT_URL = 'clinica:index'
 BOOTSTRAP4 = {
     'include_jquery': True,
 }
+
+django_heroku.settings(locals())
