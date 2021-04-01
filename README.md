@@ -30,10 +30,10 @@ Pre-requisitos
 Necesitas tener instalado Python y Pip instalados en tu sistema.
 Clonar el repositorio 
 1: Abre tu terminal y posicionate en el directorio donde quieres clonar el repositorio.
-	->>mkdir Clinica # para crear el directorio llamado Clinica
-	->>cd Clinica
+->>mkdir Clinica # para crear el directorio llamado Clinica
+->>cd Clinica
 2: Tipea en tu terminal:
-	*>> git clone https://github.com/sebadp/Clinica
+*>> git clone https://github.com/sebadp/Clinica
 Instalación 
 3: Crear un entorno virtual e instalar lo que haya en “requeriments.txt”:
 	*>>cd ..
