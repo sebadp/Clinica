@@ -1,4 +1,4 @@
-### Clínica Privada
+## Clínica Privada
 Sistema MVC desarrollado con Django y Python.
 Permite gestionar una clínica privada.
 
@@ -7,61 +7,55 @@ Existen los perfiles Gerente, Médico, Técnico, Vendedor y Secretario, cada uno
 
 ### Casos de uso:
 * Gerente:	. Puede visualizar todos los datos y realizar los siguientes reportes 
-
        			. Pacientes que asistieron a los turnos en la semana/mes. 
-			
-       			. Pacientes que no asistieron a los turnos en la semana/mes. 
-       			
-			. Pacientes que hicieron por lo menos un Pedido en la semana/mes. 
-       			
+      			. Pacientes que no asistieron a los turnos en la semana/mes. 
+			. Pacientes que hicieron por lo menos un Pedido en la semana/mes.        			
 			. Productos más vendidos en el mes. 
-       			
 			. Ventas totales por mes clasificadas por Vendedores.
-       		
-		. Puede crear usuarios.
+       		. Puede crear usuarios.
         		
 * Médico:	. Puede agregar observaciones al historial médico de sus pacientes, ver el listado de Pacientes filtrando por día, mes o año.
- 		
-		. Solo puede ver los pacientes atendidos que se le fueron asignados.
+ 		. Solo puede ver los pacientes atendidos que se le fueron asignados.
  			
 * Secretario: 	. Puede agregar, modificar o eliminar los turnos de los Pacientes.
 	
 * Ventas:	. Puede generar un pedido para el paciente, donde detalla los productos que quiere adquirir, el precio, un subtotal, tipo de pago (tarjeta de crédito, debido, billetera virtual o efectivo).
- 		
-		. El producto tiene nombre, si está clasificado como Lente tendrá la opción de Lejos/Cerca, Izquierda/Derecha, si incluye Armazón o no.
+ 		. El producto tiene nombre, si está clasificado como Lente tendrá la opción de Lejos/Cerca, Izquierda/Derecha, si incluye Armazón o no.
  			Una vez que se genera el pedido queda en estado “Pendiente”.
- 		
-		. El rol de Ventas puede cambiar el estado a “Pedido” o mandarlo a “Taller”.
+ 		. El rol de Ventas puede cambiar el estado a “Pedido” o mandarlo a “Taller”.
  	
 * Taller:	. Solo visualiza la lista de pedidos (con todos los detalles de los productos sin los precios).
- 		
-		. El Taller puede confirmar cambiando el estado del pedido a “Finalizado”.
+ 		. El Taller puede confirmar cambiando el estado del pedido a “Finalizado”.
+
 ### Comenzando: 
 Pre-requisitos : Necesitas tener instalado Python y Pip instalados en tu sistema.
 
-Clonar el repositorio 
+# Clonar el repositorio 
 
 1: Abre tu terminal y posicionate en el directorio donde quieres clonar el repositorio.
-->>mkdir Clinica # para crear el directorio llamado Clinica
-->>cd Clinica
+	
+	>>mkdir Clinica # para crear el directorio llamado Clinica
+	>>cd Clinica
 
 2: Tipea en tu terminal:
-*>> git clone https://github.com/sebadp/Clinica
+	
+	*>> git clone https://github.com/sebadp/Clinica
 
-Instalación 
+# Instalación 
 
 3: Crear un entorno virtual e instalar lo que haya en “requeriments.txt”:
-	*>>cd ..
-	*>>python -m venv venv   # Crea el entorno virtual dentro de la carpeta venv
-	*>>source venv/bin/activate
-	*>>cd Clinica
-	*>>pip install -r requirements.txt # Instala los requerimientos para el sistema.
+
+	>>cd ..
+	>>python -m venv venv   # Crea el entorno virtual dentro de la carpeta venv
+	>>source venv/bin/activate
+	>>cd Clinica
+	>>pip install -r requirements.txt # Instala los requerimientos para el sistema.
 
 4: Inicializa el sistema:
 
-*>>python manage.py makemigrations
-	*>>python manage.py migrate
-	*>>python manage.py runserver
+	>>python manage.py makemigrations
+	>>python manage.py migrate
+	>>python manage.py runserver
 
 5: Abre tu navegador web y explora el sistema en tu localhost.
 
