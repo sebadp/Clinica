@@ -30,21 +30,21 @@ Pre-requisitos
 Necesitas tener instalado Python y Pip instalados en tu sistema.
 Clonar el repositorio 
 1: Abre tu terminal y posicionate en el directorio donde quieres clonar el repositorio.
-	>>mkdir Clinica # para crear el directorio llamado Clinica
-	>>cd Clinica
+	*>>mkdir Clinica # para crear el directorio llamado Clinica
+	*>>cd Clinica
 2: Tipea en tu terminal:
-	>> git clone https://github.com/sebadp/Clinica
+	*>> git clone https://github.com/sebadp/Clinica
 Instalación 
 3: Crear un entorno virtual e instalar lo que haya en “requeriments.txt”:
-	>>cd ..
-	>>python -m venv venv   # Crea el entorno virtual dentro de la carpeta venv
-	>>source venv/bin/activate
-	>>cd Clinica
-	>>pip install -r requirements.txt # Instala los requerimientos para el sistema.
+	*>>cd ..
+	*>>python -m venv venv   # Crea el entorno virtual dentro de la carpeta venv
+	*>>source venv/bin/activate
+	*>>cd Clinica
+	*>>pip install -r requirements.txt # Instala los requerimientos para el sistema.
 4: Inicializa el sistema:
-	>>python manage.py makemigrations
-	>>python manage.py migrate
-	>>python manage.py runserver
+	*>>python manage.py makemigrations
+	*>>python manage.py migrate
+	*>>python manage.py runserver
 5: Abre tu navegador web y explora el sistema en tu localhost.
 
 ### Ejecutando las pruebas 
@@ -55,8 +55,8 @@ Cada una de las pruebas chequea el funcionamiento correcto de cada "Caso de Uso"
 
 ### Despliegue 
 El paquete está preparado para desplegar en Heroku, ya tiene su Procfile e incluídas todas las importaciones en los archivos de configuración.
-1. Para realizar el despliegue tienes que modificar el archivo manage.py y wsgi.py o asgi.py.
-2. En cada uno debes de sustituir la variable 'Tpclinica.settings.production'  por 'Tpclinica.settings.local'.
+	1. Para realizar el despliegue tienes que modificar el archivo manage.py y wsgi.py o asgi.py.
+	2. En cada uno debes de sustituir la variable 'Tpclinica.settings.production'  por 'Tpclinica.settings.local'.
 
 ### Construido con 
 Desarrollado en un entorno GNU/Linux, en lenguaje Python, con el framework Django. 
@@ -74,4 +74,4 @@ Refactorizado, documentado y desplegado por Sebastián Dávila.
 Este proyecto está bajo la Licencia (MIT) - mira el archivo LICENSE.md para detalles
 
 ### Gracias por comentar 
-    • Se agradece cualquier tipo de aporte, comentario o crítica constructiva. Enviar a :  sebastian.davila.personal@gmail.com
+Se agradece cualquier tipo de aporte, comentario o crítica constructiva. Enviar a :  sebastian.davila.personal@gmail.com
