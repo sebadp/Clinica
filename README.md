@@ -1,36 +1,50 @@
-## Clínica Privada
+# Clínica Privada
 Sistema MVC desarrollado con Django y Python.
 Permite gestionar una clínica privada.
 
 Los Usuarios son profesionales de la Clínica y el sistema les facilita sus labores.
 Existen los perfiles Gerente, Médico, Técnico, Vendedor y Secretario, cada uno con permisos y funciones específicas.
 
-### Casos de uso:
-* Gerente:	. Puede visualizar todos los datos y realizar los siguientes reportes 
-       			. Pacientes que asistieron a los turnos en la semana/mes. 
-      			. Pacientes que no asistieron a los turnos en la semana/mes. 
-			. Pacientes que hicieron por lo menos un Pedido en la semana/mes.        			
-			. Productos más vendidos en el mes. 
-			. Ventas totales por mes clasificadas por Vendedores.
-       		. Puede crear usuarios.
-        		
-* Médico:	. Puede agregar observaciones al historial médico de sus pacientes, ver el listado de Pacientes filtrando por día, mes o año.
- 		. Solo puede ver los pacientes atendidos que se le fueron asignados.
- 			
-* Secretario: 	. Puede agregar, modificar o eliminar los turnos de los Pacientes.
-	
-* Ventas:	. Puede generar un pedido para el paciente, donde detalla los productos que quiere adquirir, el precio, un subtotal, tipo de pago (tarjeta de crédito, debido, billetera virtual o efectivo).
- 		. El producto tiene nombre, si está clasificado como Lente tendrá la opción de Lejos/Cerca, Izquierda/Derecha, si incluye Armazón o no.
- 			Una vez que se genera el pedido queda en estado “Pendiente”.
- 		. El rol de Ventas puede cambiar el estado a “Pedido” o mandarlo a “Taller”.
- 	
-* Taller:	. Solo visualiza la lista de pedidos (con todos los detalles de los productos sin los precios).
- 		. El Taller puede confirmar cambiando el estado del pedido a “Finalizado”.
+## Casos de uso:
+* Gerente:
+. Puede visualizar todos los datos y realizar los siguientes reportes 
 
-### Comenzando: 
+. Pacientes que asistieron a los turnos en la semana/mes. 
+
+. Pacientes que no asistieron a los turnos en la semana/mes. 
+
+. Pacientes que hicieron por lo menos un Pedido en la semana/mes.        			
+
+. Productos más vendidos en el mes. 
+
+. Ventas totales por mes clasificadas por Vendedores.
+
+. Puede crear usuarios.
+        		
+* Médico:
+. Puede agregar observaciones al historial médico de sus pacientes, ver el listado de Pacientes filtrando por día, mes o año.
+. Solo puede ver los pacientes atendidos que se le fueron asignados.
+ 			
+* Secretario:
+. Puede agregar, modificar o eliminar los turnos de los Pacientes.
+	
+* Ventas:
+. Puede generar un pedido para el paciente, donde detalla los productos que quiere adquirir, el precio, un subtotal, tipo de pago (tarjeta de crédito, debido, billetera virtual o efectivo).
+
+. El producto tiene nombre, si está clasificado como Lente tendrá la opción de Lejos/Cerca, Izquierda/Derecha, si incluye Armazón o no.
+ 			Una vez que se genera el pedido queda en estado “Pendiente”.
+
+. El rol de Ventas puede cambiar el estado a “Pedido” o mandarlo a “Taller”.
+ 	
+* Taller:
+. Solo visualiza la lista de pedidos (con todos los detalles de los productos sin los precios).
+
+. El Taller puede confirmar cambiando el estado del pedido a “Finalizado”.
+
+## Comenzando: 
 Pre-requisitos : Necesitas tener instalado Python y Pip instalados en tu sistema.
 
-# Clonar el repositorio 
+### Clonar el repositorio 
 
 1: Abre tu terminal y posicionate en el directorio donde quieres clonar el repositorio.
 	
@@ -41,7 +55,7 @@ Pre-requisitos : Necesitas tener instalado Python y Pip instalados en tu sistema
 	
 	*>> git clone https://github.com/sebadp/Clinica
 
-# Instalación 
+### Instalación 
 
 3: Crear un entorno virtual e instalar lo que haya en “requeriments.txt”:
 
@@ -59,16 +73,16 @@ Pre-requisitos : Necesitas tener instalado Python y Pip instalados en tu sistema
 
 5: Abre tu navegador web y explora el sistema en tu localhost.
 
-### Ejecutando las pruebas 
+## Ejecutando las pruebas 
 
 Para ejecutar las pruebas debes situarte dentro de la carpeta contenedora del archivo manage.py y ejecutar el siguiente comando desde la terminal:
 
->>python3 manage.py test
+	>>python3 manage.py test
 
 Analice las pruebas end-to-end 
 Cada una de las pruebas chequea el funcionamiento correcto de cada "Caso de Uso".
 
-### Despliegue 
+## Despliegue 
 
 El paquete está preparado para desplegar en Heroku, ya tiene su Procfile e incluídas todas las importaciones en los archivos de configuración.
 
@@ -76,12 +90,12 @@ El paquete está preparado para desplegar en Heroku, ya tiene su Procfile e incl
 
 2. En cada uno debes de sustituir la variable 'Tpclinica.settings.production'  por 'Tpclinica.settings.local'.
 
-### Construido con 
+## Construido con 
 
 Desarrollado en un entorno GNU/Linux, en lenguaje Python, con el framework Django. 
 La base de datos que utilizamos es Postgre.
 
-### Autores 
+## Autores 
 
 Originalmente desarrollado como Trabajo Final del curso de Desarrollo Web Fullstack con Javascript y Python, por: 
 
@@ -95,10 +109,10 @@ Originalmente desarrollado como Trabajo Final del curso de Desarrollo Web Fullst
 
 Refactorizado, documentado y desplegado por Sebastián Dávila.
 
-### Licencia 
+## Licencia 
 
 Este proyecto está bajo la Licencia (MIT) - mira el archivo LICENSE.md para detalles
 
-### Gracias por comentar 
+## Gracias por comentar 
 
 Se agradece cualquier tipo de aporte, comentario o crítica constructiva. Enviar a :  sebastian.davila.personal@gmail.com
