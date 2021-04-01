@@ -21,18 +21,13 @@ Existen los perfiles Gerente, Médico, Técnico, Vendedor y Secretario, cada uno
 * Secretario:
 . Puede agregar, modificar o eliminar los turnos de los Pacientes.
 	
-* Ventas:
-. Puede generar un pedido para el paciente, donde detalla los productos que quiere adquirir, el precio, un subtotal, tipo de pago (tarjeta de crédito, debido, billetera virtual o efectivo).
-
-. El producto tiene nombre, si está clasificado como Lente tendrá la opción de Lejos/Cerca, Izquierda/Derecha, si incluye Armazón o no.
+* Ventas:	. Puede generar un pedido para el paciente, donde detalla los productos que quiere adquirir, el precio, un subtotal, tipo de pago (tarjeta de crédito, debido, billetera virtual o efectivo).
+	. El producto tiene nombre, si está clasificado como Lente tendrá la opción de Lejos/Cerca, Izquierda/Derecha, si incluye Armazón o no.
  			Una vez que se genera el pedido queda en estado “Pendiente”.
-
-. El rol de Ventas puede cambiar el estado a “Pedido” o mandarlo a “Taller”.
+	. El rol de Ventas puede cambiar el estado a “Pedido” o mandarlo a “Taller”.
  	
-* Taller:
-. Solo visualiza la lista de pedidos (con todos los detalles de los productos sin los precios).
-
-. El Taller puede confirmar cambiando el estado del pedido a “Finalizado”.
+* Taller:. Solo visualiza la lista de pedidos (con todos los detalles de los productos sin los precios).
+	. El Taller puede confirmar cambiando el estado del pedido a “Finalizado”.
 
 ## Comenzando: 
 Pre-requisitos : Necesitas tener instalado Python y Pip instalados en tu sistema.
