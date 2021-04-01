@@ -6,24 +6,17 @@ Los Usuarios son profesionales de la Clínica y el sistema les facilita sus labo
 Existen los perfiles Gerente, Médico, Técnico, Vendedor y Secretario, cada uno con permisos y funciones específicas.
 
 ## Casos de uso:
-* Gerente:
-. Puede visualizar todos los datos y realizar los siguientes reportes 
-
-. Pacientes que asistieron a los turnos en la semana/mes. 
-
-. Pacientes que no asistieron a los turnos en la semana/mes. 
-
-. Pacientes que hicieron por lo menos un Pedido en la semana/mes.        			
-
-. Productos más vendidos en el mes. 
-
-. Ventas totales por mes clasificadas por Vendedores.
-
-. Puede crear usuarios.
+* Gerente:. Puede visualizar todos los datos y realizar los siguientes reportes 
+	. Pacientes que asistieron a los turnos en la semana/mes. 
+	. Pacientes que no asistieron a los turnos en la semana/mes. 
+	. Pacientes que hicieron por lo menos un Pedido en la semana/mes.        			
+	. Productos más vendidos en el mes. 
+	. Ventas totales por mes clasificadas por Vendedores.
+	. Puede crear usuarios.
         		
 * Médico:
-. Puede agregar observaciones al historial médico de sus pacientes, ver el listado de Pacientes filtrando por día, mes o año.
-. Solo puede ver los pacientes atendidos que se le fueron asignados.
+	. Puede agregar observaciones al historial médico de sus pacientes, ver el listado de Pacientes filtrando por día, mes o año.
+	. Solo puede ver los pacientes atendidos que se le fueron asignados.
  			
 * Secretario:
 . Puede agregar, modificar o eliminar los turnos de los Pacientes.
@@ -88,7 +81,7 @@ El paquete está preparado para desplegar en Heroku, ya tiene su Procfile e incl
 
 1. Para realizar el despliegue tienes que modificar el archivo manage.py y wsgi.py o asgi.py.
 
-2. En cada uno debes de sustituir la variable 'Tpclinica.settings.production'  por 'Tpclinica.settings.local'.
+2. En cada uno debes de sustituir la variable 'Tpclinica.settings.local'  por 'Tpclinica.settings.production'.
 
 ## Construido con 
 
