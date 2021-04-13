@@ -111,6 +111,18 @@ El paquete está preparado para desplegar en Heroku, ya tiene su Procfile e incl
 
 Desarrollado en un entorno GNU/Linux, en lenguaje Python, con el framework Django. 
 La base de datos que utilizamos es Postgre.
+Herramientas y Skills utilizados:
+
+GNU/Linux	+	VSCode	+		Git/Github
+
+HTML5	+		CSS3	+		JavaScript	+	Bootstrap
+
+Python	+		Django	+		Django-Filters	+	Django-DatePicker
+
+SQL	+		PostrgreSQL	+	Psycopg2	+	SQLParse
+
+Heroku-CLI	+	Gunicorn	+	WhiteNoise	+	DJ-DataBases-url
+
 
 ## Autores 
 
