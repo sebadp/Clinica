@@ -13,21 +13,37 @@ Existen los perfiles Gerente, Médico, Técnico, Vendedor y Secretario, cada uno
 	. Productos más vendidos en el mes. 
 	. Ventas totales por mes clasificadas por Vendedores.
 	. Puede crear usuarios.
+	
+	![gerencia](https://user-images.githubusercontent.com/66728448/114524941-0ad9df00-9c1c-11eb-8d2b-f3d8c980aa66.gif)
+
         		
 * Médico:
 	. Puede agregar observaciones al historial médico de sus pacientes, ver el listado de Pacientes filtrando por día, mes o año.
 	. Solo puede ver los pacientes atendidos que se le fueron asignados.
  			
+	![medicos](https://user-images.githubusercontent.com/66728448/114525000-1927fb00-9c1c-11eb-84f1-d723fb6f40fd.gif)
+
+		
 * Secretario:
 . Puede agregar, modificar o eliminar los turnos de los Pacientes.
 	
-* Ventas:	. Puede generar un pedido para el paciente, donde detalla los productos que quiere adquirir, el precio, un subtotal, tipo de pago (tarjeta de crédito, debido, billetera virtual o efectivo).
+	![pacientes](https://user-images.githubusercontent.com/66728448/114525088-2fce5200-9c1c-11eb-8ff5-c892a272289a.gif)
+	
+	
+* Ventas:	
+ 	. Puede generar un pedido para el paciente, donde detalla los productos que quiere adquirir, el precio, un subtotal, tipo de pago (tarjeta de crédito, 		debido, billetera virtual o efectivo).
 	. El producto tiene nombre, si está clasificado como Lente tendrá la opción de Lejos/Cerca, Izquierda/Derecha, si incluye Armazón o no.
- 			Una vez que se genera el pedido queda en estado “Pendiente”.
+ 	Una vez que se genera el pedido queda en estado “Pendiente”.
 	. El rol de Ventas puede cambiar el estado a “Pedido” o mandarlo a “Taller”.
  	
+	![venta](https://user-images.githubusercontent.com/66728448/114525184-4674a900-9c1c-11eb-9c30-a1b4de6ae8f1.gif)
+
+	
 * Taller:. Solo visualiza la lista de pedidos (con todos los detalles de los productos sin los precios).
 	. El Taller puede confirmar cambiando el estado del pedido a “Finalizado”.
+
+	![taller](https://user-images.githubusercontent.com/66728448/114525214-4c6a8a00-9c1c-11eb-9444-fc1c46b96188.gif)
+
 
 ## Comenzando: 
 Pre-requisitos : Necesitas tener instalado Python y Pip instalados en tu sistema.
