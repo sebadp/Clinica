@@ -1,9 +1,22 @@
 # Clínica Privada
 Sistema MVC desarrollado con Django y Python.
-Permite gestionar una clínica privada.
 
-Los Usuarios son profesionales de la Clínica y el sistema les facilita sus labores.
-Existen los perfiles Gerente, Médico, Técnico, Vendedor y Secretario, cada uno con permisos y funciones específicas.
+	El sistema ofrece :
+		. Gestión de Historial clínico. Búsqueda de pacientes por fecha de consulta.
+		. Gestión de Pacientes y Turnos.
+		. Sistema de Ventas para la toma de pedidos.
+		. Canal de comunicación entre los Vendedores y el Taller.
+		. Informes personalizados para la Gerencia:
+			. Pacientes que asistieron a los turnos en la semana/mes. 
+			. Pacientes que no asistieron a los turnos en la semana/mes. 
+			. Pacientes que hicieron por lo menos un Pedido en la semana/mes.        	
+			. Productos más vendidos en el mes. 
+			. Ventas totales por mes clasificadas por Vendedores.
+		. Autenticación de Usuarios y Permisos. Los grupos disponibles son: 
+			. Gerencia. Médico. Secretario. Vendedor. Taller.
+
+
+Si les interesa saber más acerca de sus funciones y usos, en esta Web Presentación he puesto a disposición la documentación donde explico cada función y otros detalles de diseño: https://sebadp.github.io/clinica.github.io/
 
 ## Casos de uso:
 * Gerente:. Puede visualizar todos los datos y realizar los siguientes reportes 
@@ -102,14 +115,10 @@ La base de datos que utilizamos es Postgre.
 ## Autores 
 
 Originalmente desarrollado como Trabajo Final del curso de Desarrollo Web Fullstack con Javascript y Python, por: 
-
-.
-
-.
-
-.
-
-.
+. Aguirre Mariano
+. Cruz Martinez Melisa
+. Dávila Paz Sebastián
+. Duarte Edgar
 
 Refactorizado, documentado y desplegado por Sebastián Dávila.
 
