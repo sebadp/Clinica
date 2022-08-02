@@ -90,15 +90,6 @@ Pre-requisitos : Necesitas tener instalado Python y Pip instalados en tu sistema
 
 5: Abre tu navegador web y explora el sistema en tu localhost.
 
-## Ejecutando las pruebas 
-
-Para ejecutar las pruebas debes situarte dentro de la carpeta contenedora del archivo manage.py y ejecutar el siguiente comando desde la terminal:
-
-	>>python3 manage.py test
-
-Analice las pruebas end-to-end 
-Cada una de las pruebas chequea el funcionamiento correcto de cada "Caso de Uso".
-
 ## Despliegue 
 
 El paquete está preparado para desplegar en Heroku, ya tiene su Procfile e incluídas todas las importaciones en los archivos de configuración.
