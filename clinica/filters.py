@@ -1,7 +1,7 @@
 from .models import Turnos, Paciente
 import django_filters
-from django_filters import DateFilter, CharFilter, NumberFilter, ModelChoiceFilter
-from bootstrap_datepicker_plus import DatePickerInput, TimePickerInput
+from django_filters import DateFilter,ModelChoiceFilter
+from bootstrap_datepicker_plus import DatePickerInput
 
 
 class TurnosFilter(django_filters.FilterSet):
@@ -36,15 +36,3 @@ class ReporteFilter(django_filters.FilterSet):
             'start_date' : DatePickerInput(),
             'end_date' : DatePickerInput(),
         }
-
-
-# class ObservacionFilter(django_filters.FilterSet):
-#     fecha = DateFilter(field_name="Fecha", lookup_expr='gte')
-
-#     class Meta:
-#         model = Observacion
-#         fields = ['Paciente', 'Fecha']
-#         widgets = {
-#             'fecha' : DatePickerInput(),
-
-#         }
