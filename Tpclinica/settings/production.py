@@ -1,21 +1,17 @@
 from .base import *
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['tpclinica.herokuapp.com']
 
 
+DEBUG = env.bool('DEBUG_PRODUCTION', default=False)
 
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'db4iqke69dvo79',
-        'USER':'gzumsgqkgxctsn',
-        'PASSWORD': '8465d9dfeb828c75ea74da533b6bd74f56daf63b909cb508658f9ff087c4ec8d',
-        'HOST': 'ec2-52-21-252-142.compute-1.amazonaws.com',
+        'NAME': env.str('DB_PROD_NAME'),
+        'USER': env.str('DB_PROD_USER'),
+        'PASSWORD': env.str('DB_PROD_PASSWORD'),
+        'HOST': env.str('DB_PROD_HOST'),
         'PORT': 5432,
     }
 }
