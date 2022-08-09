@@ -118,8 +118,8 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-# .env
-.env/
+Tpclinica/.env
+Tpclinica/.env/
 .venv/
 env/
 venv/
